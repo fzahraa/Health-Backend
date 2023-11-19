@@ -13,10 +13,21 @@ import { ShotModule } from './shots/shot.module';
 import { ProcedureModule } from './procedure/procedure.module';
 import { TestModule } from './test/test.module';
 import { XrayModule } from './xray/xray.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver } from '@nestjs/apollo';
+import { join } from 'path';
 
 @Module({
   controllers: [AppController],
   imports: [
+    GraphQLModule.forRoot({
+      driver: ApolloDriver,
+      playground: true,
+      autoSchemaFile: join(process.cwd(), "src/schema/schema.graphql"),
+      definitions:{
+        path: join(process.cwd(), "src/interface/graphql.ts"),
+      },
+    }),
     UserModule,
     TypeOrmModule.forRoot({
       type: 'postgres',

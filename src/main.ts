@@ -7,6 +7,11 @@ import { join } from 'path';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use('/public', express.static(join(__dirname, '..', 'public'))); // <-
+  app.enableCors({
+    origin: 'http://localhost:4200', // or true to allow all origins
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,

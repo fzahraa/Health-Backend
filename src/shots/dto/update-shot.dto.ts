@@ -1,12 +1,15 @@
 import { IsDate, IsEmail, IsNumber, IsString, isDate, isNumber } from 'class-validator';
 
 export class UpdateShotDto {
+    @IsNumber()
+    id: number;
+
     @IsString()
-    NME: string;
+    name: string;
   
     @IsString()
-    SHOT_PRCE: number;
+    price: number;
   
     @IsString()
-    SHOT_CODE: string;
+    code: string;
 }

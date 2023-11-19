@@ -3,11 +3,11 @@ import { IsNull, Unique } from 'typeorm';
 
 export class CreateShotDto {
     @IsString()
-    NME: string ;
+    name: string ;
   
     @IsNumber()
-    SHOT_PRCE: number = 0;
+    price: number = 0;
   
     @IsString()
-    SHOT_CODE: string;
+    code: string;
 }

@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Shot {
+  id: Int!
+  price: Float!
+  name: String!
+  code: String!
+}
+
+type Query {
+  shots: [Shot!]!
+  findShotById(shotId: Int!): [Shot!]!
+}
+
+type Mutation {
+  deleteShot(shotId: Int!): String!
+  addShot(addShotArgs: AddShotArgs!): String!
+  createItem(input: CreateItemInput!): String!
+  updateShot(updateShotArgs: UpdateShotArgs!): String!
+}
+
+input AddShotArgs {
+  price: Float!
+  name: String!
+  code: String!
+}
+
+input CreateItemInput {
+  data: String!
+}
+
+input UpdateShotArgs {
+  id: Int!
+  price: Float!
+  name: String!
+  code: String!
+}

@@ -29,18 +29,18 @@ import {
   async store(@Body() createShotDto: CreateShotDto, @Res() res: Response) {
     console.log(createShotDto);
     if (
-        createShotDto.NME != null &&
-        createShotDto.SHOT_CODE != null &&
-        createShotDto.SHOT_PRCE != null
+        createShotDto.name != null &&
+        createShotDto.code != null &&
+        createShotDto.price != null
     ) {
-        await this.shotService.findByShotCode(createShotDto.SHOT_CODE).then(async(data) => {
+        await this.shotService.findShotByCode(createShotDto.code).then(async(data) => {
           if (data) {
             res.status(HttpStatus.FORBIDDEN).send({
               message: 'Code against this Shot Already Exists.',
             });
             return res;
           } else {
-            this.shotService.create(createShotDto).then((obj) => {
+            this.shotService.addShot(createShotDto).then((obj) => {
               res.status(HttpStatus.OK).send({
                 message: 'Shot Successfully Added.',
               });

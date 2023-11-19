@@ -3,15 +3,15 @@ import { Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 @Entity()
 export class SHOT_DET {
   @PrimaryGeneratedColumn()
-  SHOT_ID: number;
+  id: number;
 
   @Column({ nullable: true })
-  SHOT_PRCE: number;
+  price: number;
 
   @Column({ nullable: true })
-  NME: string;
+  name: string;
 
   @Column({ nullable: true })
-  SHOT_CODE: string;
+  code: string;
 
 }
